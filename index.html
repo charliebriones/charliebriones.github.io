@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charlie Briones — Project Portal</title>
+    <style>
+      :root {
+        --bg: #f1f5f9;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --border: #e2e8f0;
+        --primary: #4f46e5;
+        --dark: #0f172a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 28px 16px 40px;
+      }
+
+      .top {
+        display: flex;
+        gap: 12px;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        border: 1px solid transparent;
+        white-space: nowrap;
+      }
+      .btn-dark {
+        background: var(--dark);
+        color: white;
+      }
+      .btn-dark:hover {
+        opacity: 0.92;
+      }
+
+      .grid {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      @media (max-width: 740px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 10px 18px rgba(2, 6, 23, 0.06);
+      }
+
+      .card h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .card p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .actions {
+        margin-top: 14px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+      .btn-primary:hover {
+        opacity: 0.92;
+      }
+      .btn-outline {
+        background: white;
+        border-color: var(--border);
+        color: #334155;
+      }
+      .btn-outline:hover {
+        background: #f8fafc;
+      }
+
+      .footer {
+        margin-top: 18px;
+        color: #64748b;
+        font-size: 12px;
+      }
+
+      code {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 12px;
+        background: #f8fafc;
+        padding: 2px 6px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <h1>Charlie Briones — Project Portal</h1>
+          <p class="subtitle">
+            Full-stack CRUD demos using React and Angular with a shared .NET API
+            backend.
+          </p>
+        </div>
+
+        <a
+          class="btn btn-dark"
+          href="https://github.com/charliebriones"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub Profile
+        </a>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2>React Fullstack CRUD</h2>
+          <p>
+            React + React Router + TanStack Query consuming a .NET API (Render +
+            Azure SQL).
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://charliebriones.github.io/react-fullstack-crud/#/users"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Demo
+            </a>
+            <a
+              class="btn btn-outline"
+              href="https://github.com/charliebriones/react-fullstack-crud"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub Repo
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Angular Fullstack CRUD</h2>
+          <p>
+            Angular + Router + HttpClient consuming the same .NET API backend
+            (Render + Azure SQL).
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-dark"
+              href="https://charliebriones.github.io/angular-fullstack-crud/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Demo
+            </a>
+            <a
+              class="btn btn-outline"
+              href="https://github.com/charliebriones/angular-fullstack-crud"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub Repo
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Angular Local CRUD</h2>
+          <p>Frontend-only CRUD using in-memory state (no backend required).</p>
+          <div class="actions">
+            <a
+              class="btn btn-dark"
+              href="https://charliebriones.github.io/angular-local-crud/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Demo
+            </a>
+            <a
+              class="btn btn-outline"
+              href="https://github.com/charliebriones/angular-local-crud"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub Repo
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>.NET API (Render) + Azure SQL</h2>
+          <p>
+            ASP.NET Core Web API deployed on Render and connected to Azure SQL
+            Database.
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-outline"
+              href="https://usermanagement-mbtm.onrender.com/api/users"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Live API Endpoint
+            </a>
+          </div>
+          <p class="footer">
+            Endpoint:
+            <code>https://usermanagement-mbtm.onrender.com/api/users</code>
+          </p>
+        </div>
+      </div>
+
+      <p class="footer">
+        © <span id="y"></span> Charlie Briones • Portfolio demos
+      </p>
+    </div>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
