@@ -12,50 +12,116 @@
         --muted: #475569;
         --border: #e2e8f0;
         --primary: #4f46e5;
+        --primary-hover: #4338ca;
         --dark: #0f172a;
+        --dark-hover: #1e293b;
+        --shadow: 0 10px 24px rgba(2, 6, 23, 0.08);
+        --radius: 18px;
       }
 
       * {
         box-sizing: border-box;
       }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         font-family:
           ui-sans-serif,
           system-ui,
           -apple-system,
-          Segoe UI,
+          BlinkMacSystemFont,
+          "Segoe UI",
           Roboto,
           Helvetica,
-          Arial;
+          Arial,
+          sans-serif;
         background: var(--bg);
         color: var(--text);
       }
 
+      a {
+        color: inherit;
+      }
+
       .wrap {
-        max-width: 980px;
+        max-width: 1040px;
         margin: 0 auto;
-        padding: 28px 16px 40px;
+        padding: 32px 16px 48px;
       }
 
       .top {
         display: flex;
-        gap: 12px;
         align-items: flex-end;
         justify-content: space-between;
+        gap: 16px;
         flex-wrap: wrap;
+        margin-bottom: 24px;
       }
 
-      h1 {
+      .hero h1 {
         margin: 0;
-        font-size: 28px;
+        font-size: 30px;
+        line-height: 1.15;
         letter-spacing: -0.02em;
       }
 
       .subtitle {
-        margin: 8px 0 0;
+        margin: 10px 0 0;
+        max-width: 720px;
         color: var(--muted);
-        line-height: 1.4;
+        line-height: 1.6;
+        font-size: 15px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      @media (max-width: 740px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 26px;
+        }
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        min-height: 220px;
+      }
+
+      .card h2 {
+        margin: 0;
+        font-size: 19px;
+        line-height: 1.3;
+      }
+
+      .card p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
       }
 
       .btn {
@@ -63,78 +129,63 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
+        min-height: 42px;
         padding: 10px 14px;
         border-radius: 10px;
         text-decoration: none;
-        font-weight: 700;
         font-size: 14px;
+        font-weight: 700;
         border: 1px solid transparent;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          transform 0.15s ease;
         white-space: nowrap;
       }
-      .btn-dark {
-        background: var(--dark);
-        color: white;
-      }
-      .btn-dark:hover {
-        opacity: 0.92;
-      }
 
-      .grid {
-        margin-top: 22px;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-      }
-      @media (max-width: 740px) {
-        .grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        padding: 18px;
-        box-shadow: 0 10px 18px rgba(2, 6, 23, 0.06);
-      }
-
-      .card h2 {
-        margin: 0;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 10px 0 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.5;
-      }
-
-      .actions {
-        margin-top: 14px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
+      .btn:hover {
+        transform: translateY(-1px);
       }
 
       .btn-primary {
         background: var(--primary);
-        color: white;
+        color: #fff;
       }
+
       .btn-primary:hover {
-        opacity: 0.92;
+        background: var(--primary-hover);
       }
+
+      .btn-dark {
+        background: var(--dark);
+        color: #fff;
+      }
+
+      .btn-dark:hover {
+        background: var(--dark-hover);
+      }
+
       .btn-outline {
-        background: white;
+        background: #fff;
         border-color: var(--border);
         color: #334155;
       }
+
       .btn-outline:hover {
         background: #f8fafc;
       }
 
-      .footer {
-        margin-top: 18px;
+      .footer-note {
+        margin-top: auto;
+        padding-top: 14px;
+        color: #64748b;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .page-footer {
+        margin-top: 24px;
         color: #64748b;
         font-size: 12px;
       }
@@ -145,9 +196,10 @@
           "Liberation Mono", "Courier New", monospace;
         font-size: 12px;
         background: #f8fafc;
-        padding: 2px 6px;
-        border-radius: 8px;
         border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 2px 6px;
+        word-break: break-all;
       }
     </style>
   </head>
@@ -155,11 +207,11 @@
   <body>
     <div class="wrap">
       <div class="top">
-        <div>
+        <div class="hero">
           <h1>Charlie Briones — Project Portal</h1>
           <p class="subtitle">
-            Full-stack CRUD demos using React and Angular with a shared .NET API
-            backend.
+            Frontend and full-stack CRUD demos built with Angular, React,
+            ASP.NET Core Web API, and Azure SQL.
           </p>
         </div>
 
@@ -177,8 +229,8 @@
         <div class="card">
           <h2>Angular Fullstack CRUD</h2>
           <p>
-            Angular + Router + HttpClient consuming the same .NET API backend
-            (Render + Azure SQL).
+            Angular, Router, and HttpClient consuming a shared ASP.NET Core Web
+            API backend hosted on Azure Web App with Azure SQL.
           </p>
           <div class="actions">
             <a
@@ -203,8 +255,8 @@
         <div class="card">
           <h2>React Fullstack CRUD</h2>
           <p>
-            React + React Router + TanStack Query consuming a .NET API (Render +
-            Azure SQL).
+            React, React Router, and TanStack Query consuming the same ASP.NET
+            Core Web API backend hosted on Azure Web App with Azure SQL.
           </p>
           <div class="actions">
             <a
@@ -225,9 +277,13 @@
             </a>
           </div>
         </div>
+
         <div class="card">
           <h2>Angular Local CRUD</h2>
-          <p>Frontend-only CRUD using in-memory state (no backend required).</p>
+          <p>
+            Frontend-only CRUD demo built with Angular using local or in-memory
+            state without a backend.
+          </p>
           <div class="actions">
             <a
               class="btn btn-dark"
@@ -247,9 +303,13 @@
             </a>
           </div>
         </div>
+
         <div class="card">
           <h2>React Local Todo</h2>
-          <p>React + Tailwind CSS (Local State CRUD)</p>
+          <p>
+            Frontend-only React demo using local state for create, update, and
+            delete functionality with a simple Tailwind CSS UI.
+          </p>
           <div class="actions">
             <a
               class="btn btn-dark"
@@ -271,29 +331,40 @@
         </div>
 
         <div class="card">
-          <h2>.NET API (Render) + Azure SQL</h2>
+          <h2>.NET API + Azure SQL</h2>
           <p>
-            ASP.NET Core Web API deployed on Render and connected to Azure SQL
-            Database.
+            ASP.NET Core Web API deployed on Azure Web App and connected to
+            Azure SQL Database. Shared backend used by both Angular and React
+            full-stack demos.
           </p>
           <div class="actions">
             <a
-              class="btn btn-outline"
-              href="https://usermanagement-mbtm.onrender.com/api/users"
+              class="btn btn-dark"
+              href="https://um-api-webapp-apbye4aufshpdyh5.southeastasia-01.azurewebsites.net/api/users"
               target="_blank"
               rel="noreferrer"
             >
               Live API Endpoint
             </a>
+            <a
+              class="btn btn-outline"
+              href="https://github.com/charliebriones/UserManagement"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub Repo
+            </a>
           </div>
-          <p class="footer">
+          <p class="footer-note">
             Endpoint:
-            <code>https://usermanagement-mbtm.onrender.com/api/users</code>
+            <code
+              >https://um-api-webapp-apbye4aufshpdyh5.southeastasia-01.azurewebsites.net/api/users</code
+            >
           </p>
         </div>
       </div>
 
-      <p class="footer">
+      <p class="page-footer">
         © <span id="y"></span> Charlie Briones • Portfolio demos
       </p>
     </div>
