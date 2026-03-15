@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "your.actual.package.name",
+      "package_name": "com.charliebriones.myapp",
       "sha256_cert_fingerprints": [
-        "YOUR_SHA256_FINGERPRINT"
+        "7C:C8:4F:BC:99:48:4C:20:1F:97:F3:FE:45:5F:51:A4:39:CA:11:F7:8F:B6:B2:0C:1F:61:F5:94:8B:CF:79:8C"
       ]
     }
   }
